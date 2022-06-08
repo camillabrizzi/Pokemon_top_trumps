@@ -1,0 +1,2 @@
+Your pokedex record shows: ['scyther'] on 07-06-2022 12:16:03
+Your pokedex record shows: ['wartortle'] on 07-06-2022 12:17:01
