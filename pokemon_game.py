@@ -2,6 +2,7 @@ import requests
 import json
 import random
 # to translate any language action comment from API into English
+# install googletrans via terminal first using 'pip install googletrans'
 from googletrans import Translator
 import datetime
 
