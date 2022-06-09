@@ -19,7 +19,7 @@ def begin_game():
     # print name of specific pokemon in the list nested under 'results' key in response_info dictionary
     global pokemon_name
     pokemon_name = first_user_pokemon['name']
-    print("Your first pokemon is " + pokemon_name + ". It's moves are: ")
+    print("Your first pokemon is " + pokemon_name + ". Its moves are: ")
     # print list of moves for pokemon from API
     for item in first_user_pokemon['moves']:
         print(item['move']['name'], end=', \n')
