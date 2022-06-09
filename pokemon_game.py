@@ -165,7 +165,8 @@ def first_goer():
             enemy_choice()
             get_move()
 
-
+            
+# asks user if they want to check pokedex then returns keys (names of pokemons) within pokedex dictionary
 def pokedex_view():
     while True:
         pokedex_view_input = input("Do you want to check your pokedex? (answer 'yes' or 'no')")
@@ -177,7 +178,8 @@ def pokedex_view():
         else:
             print("Please only answer 'yes' or 'no'")
 
-
+            
+# asks user if they want to switch their current pokemon or keep current one
 def switch_pokemon():
     while True:
         if len(pokedex) > 1:
@@ -191,6 +193,7 @@ def switch_pokemon():
                 print("Please only answer 'yes' or 'no'")
 
 
+# when enemy wins, an equivalent amount to the power difference between moves is deducted from the total HPs               
 def update_hps():
     if winner == 'Enemy':
         lost_health_points = (enemy_move_power if user_move_power == 0 else enemy_move_power - user_move_power)
@@ -198,7 +201,7 @@ def update_hps():
         health_points = health_points - lost_health_points
         print('Your HPs balance is: ' + str(health_points))
 
-
+# if enemy wins, they might decide (randomly) to keep your pokemon
 def lose_pokemon():
     global enemy_takes
     global next_pokemon
@@ -216,6 +219,7 @@ def lose_pokemon():
         pokedex_view()
 
 
+# If you only have one pokemon left, the enemy will let you keep it
 def enemy_take_decision():
     global enemy_takes
     if len(pokedex) > 1:
@@ -229,6 +233,8 @@ def enemy_take_decision():
         battle()
 
 
+# this function allows the user, once they reach 0 HPs, to go back to 250 HPs and continue game, by losing a random pokemon from their pokedex. 
+#If only one pokemon was left, the game ends.
 def end_game():
     global health_points
     if health_points <= 0 and len(pokedex) > 1:
@@ -257,6 +263,7 @@ def end_game():
 date_time = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 
 
+# This saves pokedex record at the time the game ends
 def save_record():
     # Creates new file if not already there
     games_record = open('games_record.txt', 'a')
